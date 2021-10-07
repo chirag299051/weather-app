@@ -7,7 +7,6 @@ import "mdbreact/dist/css/mdb.css";
 import App from "./App";
 import { AppProvider } from "./context";
 import reportWebVitals from "./reportWebVitals";
-import "react-bootstrap-typeahead/css/Typeahead.css";
 import "mdb-react-ui-kit/dist/css/mdb.min.css";
 
 ReactDOM.render(

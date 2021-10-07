@@ -1,29 +1,52 @@
-import React, { useState, useEffect } from "react";
-
-const URL =
-  "https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/cases_by_country.php";
-const APIKey = "b74faec440mshb8fdb8ea26ffea9p1aaf6bjsn50000fc429ce";
-const host = "coronavirus-monitor-v2.p.rapidapi.com";
+import React, { useContext, useState, useEffect } from "react";
+import { context } from "./context";
+import Card from "./Card";
+import { Table } from "react-bootstrap";
 
 const Covid = () => {
-  useEffect(() => {
-    fetch(URL, {
-      method: "GET",
-      headers: {
-        "x-rapidapi-host": host,
-        "x-rapidapi-key": APIKey,
-      },
-    })
-      .then((response) => response.json())
-      .then((result) => {
-        console.log("Covid :", result);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
-
-  return <div></div>;
+  const { covid, theme } = useContext(context);
+  return (
+    <Card className={theme + " covid"}>
+      <h1 style={{ position: "sticky" }}>Covid Cases by Country</h1>
+      <Table
+        className="table"
+        size="sm"
+        variant="dark"
+        striped
+        hover
+        responsive
+      >
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Country</th>
+            <th>Cases</th>
+            <th>Active</th>
+            <th>Deaths</th>
+            <th>New Cases</th>
+            <th>New Deaths</th>
+          </tr>
+        </thead>
+        <tbody>
+          {covid &&
+            covid.countries.map((x, index) => {
+              return (
+                <tr key={index}>
+                  <td>{index + 1}</td>
+                  <td>{x.name}</td>
+                  <td>{x.cases}</td>
+                  <td>{x.active_cases}</td>
+                  <td>{x.deaths}</td>
+                  <td>{x.new_cases}</td>
+                  <td>{x.new_deaths}</td>
+                </tr>
+              );
+            })}
+        </tbody>
+      </Table>
+      {covid && <p>Source: as of {covid.sources}</p>}
+    </Card>
+  );
 };
 
 export default Covid;

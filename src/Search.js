@@ -1,52 +1,40 @@
 import React, { useState, useContext, useEffect, useRef } from "react";
-import { AsyncTypeahead } from "react-bootstrap-typeahead";
 import { MDBContainer, MDBBtn } from "mdb-react-ui-kit";
-import ReactDOM from "react-dom";
-import "react-bootstrap-typeahead/css/Typeahead.css";
 import { context } from "./context";
+import GooglePlacesAutocomplete from "react-google-places-autocomplete";
 
 const Search = () => {
-  const myRef = useRef();
-  console.log(myRef);
-  const [key, setKey] = useState(0);
-  const { theme, isLoading, location, options, handleSearch } =
-    useContext(context);
+  const places = useRef();
+  const { theme, isLoading, location, getCoords } = useContext(context);
+  const [value, setValue] = useState("");
 
   useEffect(() => {
-    handleSearch(location.city);
+    console.log("places", places);
+    console.log(location);
+    setValue(location.city);
+    return () => {
+      setValue("");
+    };
   }, [location]);
-
-  const filterBy = () => true;
   return (
-    <div
-      key={Math.random()}
-      style={{ padding: "50px 10px", width: "21%", margin: "auto" }}
-    >
-      <AsyncTypeahead
-        ref={myRef}
-        filterBy={filterBy}
-        id="async-TA"
-        // onBlur={(e) => {
-        //   // setValue("some value");
-        //   setKey(key + 1);
-        // }}
-        isLoading={isLoading}
-        labelKey="city"
-        minLength={2}
-        defaultInputValue={location.city || ""}
-        onSearch={handleSearch}
-        options={options}
-        placeholder="City"
-        renderMenuItemChildren={(option) =>
-          option && (
-            <>
-              <span>{option.city}</span>
-              <span style={{ float: "right" }}>{option.country}</span>
-            </>
-          )
-        }
+    <div className="search">
+      <GooglePlacesAutocomplete
+        ref={places}
+        apiKey="AIzaSyChD_ozQm2jhcWsqNgX3iSW1kMZjdGIbx4"
+        selectProps={{
+          defaultInputValue: value,
+          // onPlaceSelected: (place) => {
+          //   console.log("Place :", place);
+          // },
+          onChange: (val) => {
+            console.log(val);
+            setValue(val.value.structured_formatting.main_text);
+            getCoords(val.value.description);
+            console.log(location);
+          },
+        }}
       />
-      <MDBBtn
+      {/* <MDBBtn
         gradient="aqua"
         rounded
         size="md"
@@ -54,7 +42,7 @@ const Search = () => {
         className="mr-auto"
       >
         Search
-      </MDBBtn>
+      </MDBBtn> */}
     </div>
   );
 };

@@ -4,9 +4,11 @@ import News from "./News";
 
 const Main = () => {
   return (
-    <section style={{ backgroundColor: "#1D272D", height: "100vh" }}>
+    <section
+      style={{ color: "#4f4f4f", backgroundColor: "#1D272D", height: "100vh" }}
+    >
       <News />
-      <Covid />
+      {/* <Covid /> */}
     </section>
   );
 };

@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
+    Helvetica, Arial, "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -12,15 +12,234 @@ code {
     monospace;
 }
 
-.rbt {
-  width: 70% !important;
-  display: inline-block;
-  /* position: absolute !important; */
+.header {
+  width: 100%;
+  height: 90vh;
+  margin-top: -100px;
+  background-color: black;
+  max-height: 100%;
+  /* padding-bottom: 20%; */
 }
-.mr-auto {
+
+.logo {
+  position: absolute !important;
+  left: 5%;
+  top: 2%;
+}
+.logo img {
+  width: 40px;
+  border-radius: 50%;
+  position: relative;
+  top: -4px;
+  /* filter: brightness(75%) saturate(40%) */
+}
+.logo h2 {
+  display: inline-block;
+  padding: 10px 20px;
+  vertical-align: middle;
+}
+
+.search {
+  padding: 50px 10px;
+  width: 20%;
+  margin: 100px auto;
+  position: relative;
+  z-index: 10;
+  /* height: 900px; */
+}
+
+.css-2b097c-container {
+  width: 70%;
+  display: inline-block;
+  background-color: transparent;
+  z-index: 1005;
+  position: relative;
+}
+.css-yk16xz-control {
+  z-index: 1;
+}
+.css-2613qy-menu {
+  z-index: 1005;
+  position: relative;
+}
+
+/* .css-yk16xz-control,
+.css-yk16xz-control {
+  opacity: 0.5;
+} */
+
+canvas.vanta-canvas {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  max-height: 90%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+/* .mr-auto {
   float: right;
   padding: 5px;
   top: 50%;
   -ms-transform: translateY(-10%);
   transform: translateY(-15%);
+} */
+
+.Card {
+  border-radius: 20px;
+  opacity: 0.6;
+  position: relative;
+  z-index: 1;
+  margin: auto;
+  margin-bottom: 100px;
+  padding: 20px;
+  width: 90%;
+  transition: 0.2s ease-in-out;
+  color: aliceblue;
+}
+.Card:hover {
+  opacity: 0.7;
+}
+
+.d {
+  background-color: rgb(18, 13, 32);
+  /* background-color: rgb(142, 181, 214); */
+}
+
+.n {
+  background-color: rgb(18, 13, 32);
+}
+
+.weather {
+  /* opacity: 0.6; */
+}
+.news {
+  width: 45%;
+  /* margin-left: 5%; */
+  margin-right: 0%;
+  /* display: grid; */
+  display: inline-block;
+  max-height: 800px;
+  overflow: auto;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top: 15px solid rgb(18, 13, 32);
+  border-bottom: 15px solid rgb(18, 13, 32);
+}
+.news-item {
+  /* display: inline; */
+  padding: 20px 10px;
+  margin: 10px auto;
+  background-color: blue;
+  border-radius: 10px;
+  width: 100%;
+  min-height: 100px;
+  opacity: 0.9;
+  transition: 0.2s ease-in-out;
+  display: block;
+  text-decoration: none;
+  outline: none;
+  cursor: pointer;
+  color: inherit;
+}
+.news-item:hover {
+  opacity: 1;
+  color: inherit;
+  transform: scale(1.02);
+}
+.news-item img {
+  width: 100px;
+}
+.news-item p {
+  width: 80%;
+  float: right;
+  margin-top: 10px;
+}
+
+.covid {
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  border-top: 20px solid rgb(18, 13, 32);
+  border-bottom: 20px solid rgb(18, 13, 32);
+  width: 40%;
+  margin-left: 5%;
+  display: inline-block;
+  vertical-align: top;
+  max-height: 40%;
+  overflow: auto;
+}
+.table {
+  color: "white";
+}
+
+.footer {
+  background-color: rgb(18, 13, 32);
+  height: 10vh;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+  position: fixed;
+  z-index: 1;
+  overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+  height: 1px;
+  width: 5px;
+  background: rgb(18, 13, 32);
+}
+::-webkit-scrollbar-thumb:vertical {
+  background: rgb(142, 181, 214);
+  border-radius: 10px;
+}
+
+@media screen and (max-width: 680px) {
+  .logo {
+    left: 20%;
+    top: 0%;
+    margin-bottom: 30px;
+  }
+  .search {
+    width: 80%;
+    padding-top: 75px;
+    margin-top: 120px;
+    margin-bottom: 0px;
+  }
+  .Card {
+    margin: 5px auto;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 50px;
+    width: 100%;
+    min-height: 40%;
+    opacity: 0.7;
+  }
+  .Card:hover {
+    opacity: 0.9;
+  }
+  .news {
+  }
+  .news-item {
+    min-height: 300px;
+    overflow-y: auto;
+  }
+  .news-item img {
+    width: 90%;
+  }
+  .news-item p {
+    padding: 5px;
+    margin: auto;
+    float: none;
+  }
+  .covid {
+    margin-bottom: 200px;
+    min-height: 70%;
+    border-top: 20px solid rgb(18, 13, 32);
+    border-bottom: 20px solid rgb(18, 13, 32);
+  }
+  .table th,
+  .table td {
+    padding: 5px 8px !important;
+    margin: 0px !important;
+  }
 }

@@ -1,21 +1,19 @@
-import React, { useState, useEffect } from "react";
-
-const URL = "https://newsapi.org/v2/top-headlines?country=";
-const key = "07a79a233918493ea5e2dc75ebbf7f3a";
+import React, { useState, useContext, useEffect } from "react";
+import { context } from "./context";
+import NewsItem from "./NewsItem";
+import Card from "./Card";
 
 const News = () => {
-  useEffect(() => {
-    fetch(`${URL}us&apiKey=${key}`)
-      .then((response) => response.json())
-      .then((result) => {
-        console.log("News :", result);
-      })
-      .catch((err) => {
-        console.error(err);
-      });
-  }, []);
-
-  return <div></div>;
+  const { theme, news } = useContext(context);
+  return (
+    <Card className={theme + " news"}>
+      <h1>Current News</h1>
+      <div>
+        {news &&
+          news.map((item, index) => <NewsItem key={index} item={item} />)}
+      </div>
+    </Card>
+  );
 };
 
 export default News;

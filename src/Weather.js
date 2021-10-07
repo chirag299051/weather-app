@@ -1,20 +1,28 @@
-import React from "react";
-
-const URL =
-  "https://api.openweathermap.org/data/2.5/onecall?lat=40.7221&lon=-74.0469&units=metric&appid=706c875644ce262a11af9eaf5a62df90";
+import React, { useContext } from "react";
+import { context } from "./context";
+import Clock from "react-live-clock";
+import Card from "./Card";
 
 const Weather = () => {
-  // useEffect(() => {
-  //   fetch(`${URL}us&apiKey=${key}`)
-  //     .then((response) => response.json())
-  //     .then((result) => {
-  //       console.log("News :", result);
-  //     })
-  //     .catch((err) => {
-  //       console.error(err);
-  //     });
-  // }, []);
-  return <div></div>;
+  const { theme, weather, location, timezone } = useContext(context);
+  return (
+    weather && (
+      <Card className={theme + " weather"}>
+        <div>
+          <h1>
+            {location.city}, {location.country}
+          </h1>
+          <Clock format={"DD MMMM YYYY"} ticking={true} timezone={timezone} />
+        </div>
+        <div>
+          <Clock format={"HH:mm:ss"} ticking={true} timezone={timezone} />
+          <p>
+            {weather.temp}, {weather.country}
+          </p>
+        </div>
+      </Card>
+    )
+  );
 };
 
 export default Weather;
