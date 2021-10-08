@@ -12,6 +12,10 @@ code {
     monospace;
 }
 
+ul {
+  list-style-type: none;
+}
+
 .header {
   width: 100%;
   height: 90vh;
@@ -87,18 +91,22 @@ canvas.vanta-canvas {
 
 .Card {
   border-radius: 20px;
-  opacity: 0.6;
+  border-top: 50px solid rgb(18, 13, 32);
+  opacity: 0.78;
   position: relative;
   z-index: 1;
   margin: auto;
   margin-bottom: 100px;
   padding: 20px;
   width: 90%;
-  transition: 0.2s ease-in-out;
+  transition: 0.1s ease-in-out;
   color: aliceblue;
 }
 .Card:hover {
-  opacity: 0.7;
+  opacity: 0.8;
+}
+.Card h1 {
+  padding-bottom: 10px;
 }
 
 .d {
@@ -111,8 +119,22 @@ canvas.vanta-canvas {
 }
 
 .weather {
-  /* opacity: 0.6; */
+  /* padding-top: 50px; */
 }
+.weather img {
+  display: inline-block;
+  width: 70px;
+}
+
+.clocks {
+  position: absolute;
+  right: 100px;
+  top: 30px;
+}
+.time {
+  font-size: 33px;
+}
+
 .news {
   width: 45%;
   /* margin-left: 5%; */
@@ -123,19 +145,31 @@ canvas.vanta-canvas {
   overflow: auto;
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
-  border-top: 15px solid rgb(18, 13, 32);
+  /* border-top: 15px solid rgb(18, 13, 32); */
   border-bottom: 15px solid rgb(18, 13, 32);
 }
+/* .news h1 {
+  position: sticky;
+  top: 0%;
+  left: -10%;
+  background-color: inherit;
+  width: inherit;
+  height: 121px;
+  padding-top: 30px;
+  border-radius: 20px;
+  z-index: 10;
+} */
+
 .news-item {
   /* display: inline; */
   padding: 20px 10px;
   margin: 10px auto;
-  background-color: blue;
+  background-color: #d6dcff;
   border-radius: 10px;
   width: 100%;
   min-height: 100px;
-  opacity: 0.9;
-  transition: 0.2s ease-in-out;
+  opacity: 0.95;
+  transition: 0.1s ease-in-out;
   display: block;
   text-decoration: none;
   outline: none;
@@ -154,18 +188,19 @@ canvas.vanta-canvas {
   width: 80%;
   float: right;
   margin-top: 10px;
+  color: black;
 }
 
 .covid {
   border-top-right-radius: 0px;
   border-bottom-right-radius: 0px;
-  border-top: 20px solid rgb(18, 13, 32);
+  /* border-top: 20px solid rgb(18, 13, 32); */
   border-bottom: 20px solid rgb(18, 13, 32);
   width: 40%;
   margin-left: 5%;
   display: inline-block;
   vertical-align: top;
-  max-height: 40%;
+  max-height: 50%;
   overflow: auto;
 }
 .table {
@@ -173,7 +208,10 @@ canvas.vanta-canvas {
 }
 
 .footer {
-  background-color: rgb(18, 13, 32);
+  /* color: "#4f4f4f", backgroundColor: "#1D272D" */
+  /* background-color: rgb(18, 13, 32); */
+  color: #7a7a7a;
+  background-color: #1a1c24;
   height: 10vh;
   width: 100%;
   left: 0;
@@ -181,6 +219,20 @@ canvas.vanta-canvas {
   position: fixed;
   z-index: 1;
   overflow-y: auto;
+}
+.footer span {
+  position: relative;
+  top: 40%;
+}
+.footer a {
+  color: #d6dcff;
+  opacity: 0.6;
+  transition: all 0.2s ease-in;
+}
+.footer a:hover {
+  text-decoration: none;
+  color: red;
+  opacity: 1;
 }
 
 ::-webkit-scrollbar {
@@ -190,6 +242,11 @@ canvas.vanta-canvas {
 }
 ::-webkit-scrollbar-thumb:vertical {
   background: rgb(142, 181, 214);
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:horizontal {
+  background: #d6dcff;
+  width: 80px;
   border-radius: 10px;
 }
 
@@ -207,7 +264,7 @@ canvas.vanta-canvas {
   }
   .Card {
     margin: 5px auto;
-    padding: 20px;
+    padding: 20px 10px;
     border-radius: 10px;
     margin-bottom: 50px;
     width: 100%;
@@ -217,14 +274,30 @@ canvas.vanta-canvas {
   .Card:hover {
     opacity: 0.9;
   }
+  .clocks {
+    position: unset;
+  }
+
   .news {
+    height: 85%;
+    width: 100%;
+    border-top: 10px solid rgb(18, 13, 32);
+    overflow-y: none;
+    overflow-x: scroll;
   }
   .news-item {
-    min-height: 300px;
-    overflow-y: auto;
+    float: left;
+    display: inline-block !important;
+    width: 2%;
+    margin-right: 10px;
+    margin-bottom: 70px;
+    max-height: 450px;
+  }
+  .news-items {
+    width: 16500px;
   }
   .news-item img {
-    width: 90%;
+    width: 100%;
   }
   .news-item p {
     padding: 5px;
@@ -237,9 +310,12 @@ canvas.vanta-canvas {
     border-top: 20px solid rgb(18, 13, 32);
     border-bottom: 20px solid rgb(18, 13, 32);
   }
+  .covid h1 {
+    font-size: 2rem;
+  }
   .table th,
   .table td {
-    padding: 5px 8px !important;
+    padding: 2px 4px !important;
     margin: 0px !important;
   }
 }

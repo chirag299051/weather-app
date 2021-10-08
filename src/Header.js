@@ -58,7 +58,7 @@ const Header = (props) => {
     <div ref={myRef} className="header">
       <div className="logo">
         <img src={globe} alt="" />
-        <h2>Weather App</h2>
+        <h2 style={{ color: "white" }}>Weather App</h2>
       </div>
       <Search />
       <Weather />

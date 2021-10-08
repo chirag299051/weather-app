@@ -5,8 +5,8 @@ const cURL = "https://api.openweathermap.org/geo/1.0/direct?q=";
 const cKEY = "706c875644ce262a11af9eaf5a62df90";
 const wURL = "https://api.openweathermap.org/data/2.5/weather?lat=";
 const wKEY = "706c875644ce262a11af9eaf5a62df90";
-const nURL = "https://newsapi.org/v2/top-headlines?country=";
-const nKEY = "07a79a233918493ea5e2dc75ebbf7f3a";
+const nURL = "http://api.mediastack.com/v1/news?access_key=";
+const nKEY = "b6f8eca54e7df812ef635a9a3b5c649a";
 const covidURL =
   "https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/cases_by_country.php";
 const covidKEY = "b74faec440mshb8fdb8ea26ffea9p1aaf6bjsn50000fc429ce";
@@ -144,11 +144,13 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     location.country &&
-      fetch(`${nURL}${location.country}&apiKey=${nKEY}`)
+      fetch(
+        `${nURL}${nKEY}&countries=${location.country}&limit=100&sort=popularity`
+      )
         .then((response) => response.json())
         .then((result) => {
           console.log("News :", result);
-          setNews(result.articles);
+          setNews(result.data.filter((x) => x.image !== null));
         })
         .catch((err) => {
           console.error(err);

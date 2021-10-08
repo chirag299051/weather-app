@@ -23,6 +23,7 @@ const Search = () => {
         apiKey="AIzaSyChD_ozQm2jhcWsqNgX3iSW1kMZjdGIbx4"
         selectProps={{
           defaultInputValue: value,
+          placeholder: "City",
           // onPlaceSelected: (place) => {
           //   console.log("Place :", place);
           // },
