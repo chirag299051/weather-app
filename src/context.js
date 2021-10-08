@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
 const lURL = "https://geolocation-db.com/json/";
-const cURL = "https://api.openweathermap.org/geo/1.0/direct?q=";
-const cKEY = "706c875644ce262a11af9eaf5a62df90";
+// const cURL = "https://api.openweathermap.org/geo/1.0/direct?q=";
+// const cKEY = "706c875644ce262a11af9eaf5a62df90";
 const wURL = "https://api.openweathermap.org/data/2.5/weather?lat=";
 const wKEY = "706c875644ce262a11af9eaf5a62df90";
-const nURL = "http://api.mediastack.com/v1/news?access_key=";
+const nURL = "https://api.mediastack.com/v1/news?access_key=";
 const nKEY = "b6f8eca54e7df812ef635a9a3b5c649a";
 const covidURL =
   "https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/cases_by_country.php";
