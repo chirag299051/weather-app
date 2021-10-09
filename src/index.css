@@ -198,7 +198,7 @@ canvas.vanta-canvas {
   /* color: "#4f4f4f", backgroundColor: "#1D272D" */
   /* background-color: rgb(18, 13, 32); */
   color: #7a7a7a;
-  background-color: #1a1c24;
+  background-color: #121316;
   height: 10vh;
   width: 100%;
   left: 0;
@@ -212,7 +212,7 @@ canvas.vanta-canvas {
   top: 40%;
 }
 .footer a {
-  color: #d6dcff;
+  color: #e4e8ff;
   opacity: 0.6;
   transition: all 0.2s ease-in;
 }
