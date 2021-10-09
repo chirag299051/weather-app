@@ -39,29 +39,30 @@ const Weather = () => {
             src={`http://openweathermap.org/img/wn/${weather.weatherc.icon}@2x.png`}
           />
           <b>
-            <i>{weather.temp}&deg; C&emsp;&emsp;</i>
+            <i>{parseInt(weather.temp).toFixed(1)}&deg; C&emsp;&emsp;</i>
           </b>
-          <i>feels like {weather.feels_like}&deg; C</i>
+          <i>feels like {parseInt(weather.feels_like).toFixed(1)}&deg; C</i>
           <ul>
             <li>
               <i>
-                {weather.temp_max}/{weather.temp_min}
+                {parseInt(weather.temp_max).toFixed(1)}&nbsp;/&nbsp;
+                {parseInt(weather.temp_min).toFixed(1)}
               </i>
             </li>
             <li>
-              <i>Sunrise: {getTime(weather.sunrise, timezone)}</i>
+              <i>Sunrise: &nbsp;{getTime(weather.sunrise, timezone)}</i>
             </li>
             <li>
-              <i>Sunset: {getTime(weather.sunset, timezone)}</i>
+              <i>Sunset: &nbsp;{getTime(weather.sunset, timezone)}</i>
             </li>
             <li>
-              <i>Wind: {weather.wind}km/h</i>
+              <i>Wind: &nbsp;{parseInt(weather.wind).toFixed(1)} km/h</i>
             </li>
             {/* <li>
               <i>Pressure: {weather.pressure}</i>
             </li> */}
             <li>
-              <i>Humidity: {weather.humidity}%</i>
+              <i>Humidity: &nbsp;{weather.humidity} %</i>
             </li>
           </ul>
         </div>

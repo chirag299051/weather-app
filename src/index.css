@@ -67,11 +67,6 @@ ul {
   position: relative;
 }
 
-/* .css-yk16xz-control,
-.css-yk16xz-control {
-  opacity: 0.5;
-} */
-
 canvas.vanta-canvas {
   position: fixed !important;
   top: 0 !important;
@@ -80,14 +75,6 @@ canvas.vanta-canvas {
   overflow-y: auto;
   overflow-x: hidden;
 }
-
-/* .mr-auto {
-  float: right;
-  padding: 5px;
-  top: 50%;
-  -ms-transform: translateY(-10%);
-  transform: translateY(-15%);
-} */
 
 .Card {
   border-radius: 20px;
@@ -168,7 +155,7 @@ canvas.vanta-canvas {
   border-radius: 10px;
   width: 100%;
   min-height: 100px;
-  opacity: 0.95;
+  opacity: 1;
   transition: 0.1s ease-in-out;
   display: block;
   text-decoration: none;
@@ -179,7 +166,7 @@ canvas.vanta-canvas {
 .news-item:hover {
   opacity: 1;
   color: inherit;
-  transform: scale(1.02);
+  transform: scale(1.015);
 }
 .news-item img {
   width: 100px;
@@ -269,10 +256,10 @@ canvas.vanta-canvas {
     margin-bottom: 50px;
     width: 100%;
     min-height: 40%;
-    opacity: 0.7;
+    opacity: 0.78;
   }
   .Card:hover {
-    opacity: 0.9;
+    opacity: 0.88;
   }
   .clocks {
     position: unset;

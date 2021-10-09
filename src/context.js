@@ -5,12 +5,13 @@ const lURL = "https://geolocation-db.com/json/";
 // const cKEY = "706c875644ce262a11af9eaf5a62df90";
 const wURL = "https://api.openweathermap.org/data/2.5/weather?lat=";
 const wKEY = "706c875644ce262a11af9eaf5a62df90";
-const nURL = "http://api.mediastack.com/v1/news?access_key=";
-const nKEY = "b6f8eca54e7df812ef635a9a3b5c649a";
+const nURL = "https://api.currentsapi.services/v1/search?language=en&country=";
+const nKEY = "oa9AFhpH80Xey9PNXgPTwZWkQUfBP4yY5iaHKaD6klhgkK9_";
 const covidURL =
   "https://coronavirus-monitor-v2.p.rapidapi.com/coronavirus/cases_by_country.php";
 const covidKEY = "b74faec440mshb8fdb8ea26ffea9p1aaf6bjsn50000fc429ce";
 const covidHOST = "coronavirus-monitor-v2.p.rapidapi.com";
+const MAPS_KEY = process.env.REACT_APP_MAPS_KEY;
 
 export const context = React.createContext();
 
@@ -38,7 +39,7 @@ export const AppProvider = ({ children }) => {
     console.log("Geo :", result);
   };
   const getCoords = (addr) => {
-    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addr}&key=AIzaSyChD_ozQm2jhcWsqNgX3iSW1kMZjdGIbx4
+    fetch(`https://maps.googleapis.com/maps/api/geocode/json?address=${addr}&key=${MAPS_KEY}
 `)
       .then((response) => response.json())
       .then((result) => {
@@ -74,11 +75,6 @@ export const AppProvider = ({ children }) => {
     fetchLocation();
   }, [lURL]);
 
-  //   useEffect(() => {
-  //     const date = new Date(Date.now());
-  //     setDate(date.toString("MM/dd/yy").split(" ").slice(0, 4));
-  //   }, [location]);
-
   useEffect(() => {
     setLoading(true);
     location.lat &&
@@ -87,7 +83,7 @@ export const AppProvider = ({ children }) => {
           location.lat
         },${location.lon}&timestamp=${Math.floor(
           Date.now() / 1000
-        )}&key=AIzaSyChD_ozQm2jhcWsqNgX3iSW1kMZjdGIbx4`
+        )}&key=${MAPS_KEY}`
       )
         .then((response) => response.json())
         .then((result) => {
@@ -144,13 +140,19 @@ export const AppProvider = ({ children }) => {
 
   useEffect(() => {
     location.country &&
-      fetch(
-        `${nURL}${nKEY}&countries=${location.country}&limit=100&sort=popularity`
-      )
+      fetch(`${nURL}${location.country}&apiKey=${nKEY}`)
         .then((response) => response.json())
         .then((result) => {
           console.log("News :", result);
-          setNews(result.data.filter((x) => x.image !== null));
+          setNews(
+            result.news.filter(
+              (x) =>
+                x.language === "en" &&
+                x.language !== "zh-hant" &&
+                x.image !== "None" &&
+                x.author !== ""
+            )
+          );
         })
         .catch((err) => {
           console.error(err);
@@ -191,13 +193,6 @@ export const AppProvider = ({ children }) => {
 
   console.log(covid);
 
-  const mapDate = () => {
-    const birthday = new Date(1633323393 * 1000);
-    // const date1 = birthday.toString("MM/dd/yy HH:mm:ss");
-    const date1 = birthday.toString("MM/dd/yy").split(" ");
-
-    console.log(date1, Date.now());
-  };
   return (
     <context.Provider
       value={{
