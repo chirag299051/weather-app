@@ -2,6 +2,7 @@ import logo from "./logo.svg";
 import "./App.css";
 import Header from "./Header";
 import Footer from "./Footer";
+import React from "react";
 
 function App() {
   return (
@@ -12,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default React.memo(App);

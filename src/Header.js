@@ -16,6 +16,7 @@ const Header = (props) => {
   useEffect(() => {
     console.log(theme);
     if (theme === "d") {
+      if (vantaEffect) vantaEffect.destroy();
       setVantaEffect(
         CLOUDS({
           el: myRef.current,
@@ -31,6 +32,7 @@ const Header = (props) => {
         })
       );
     } else if (theme === "n") {
+      if (vantaEffect) vantaEffect.destroy();
       setVantaEffect(
         CLOUDS({
           el: myRef.current,
@@ -68,4 +70,4 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+export default React.memo(Header);
