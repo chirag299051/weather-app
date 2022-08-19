@@ -25,8 +25,6 @@ const Header = (props) => {
           gyroControls: false,
           minHeight: 600.0,
           minWidth: 200.0,
-          // scale: 1.0,
-          // scaleMobile: 1.0,
           backgroundColor: 0x0,
         })
       );
@@ -47,7 +45,6 @@ const Header = (props) => {
           sunColor: 0xfafafa,
           sunGlareColor: 0xffffff,
           sunlightColor: 0xf5f5f5,
-          // scaleMobile: 1.0,
         })
       );
     }
@@ -59,7 +56,7 @@ const Header = (props) => {
     <div ref={myRef} className="header">
       <div className="logo">
         <img src={globe} alt="" />
-        <h2 style={{ color: "white" }}>Weather App</h2>
+        <h2>Weather App</h2>
       </div>
       <Search />
       <Weather />

@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 
-const lURL = "https://geolocation-db.com/json/";
 const wURL = "https://api.openweathermap.org/data/2.5/weather?lat=";
 const wKEY = "706c875644ce262a11af9eaf5a62df90";
 const nURL = "https://api.currentsapi.services/v1/search?language=en&country=";
@@ -17,20 +16,6 @@ export const AppProvider = ({ children }) => {
   const [weather, setWeather] = useState(null);
   const [news, setNews] = useState(null);
   const [error, setError] = useState(false);
-
-  // const fetchLocation = async () => {
-  //   const resp = await fetch(lURL);
-  //   const result = await resp.json();
-  //   setLocation({
-  //     ...location,
-  //     city: result.city,
-  //     lat: result.latitude,
-  //     lon: result.longitude,
-  //     country: result.country_code,
-  //   });
-
-  //   console.log("Geo :", result);
-  // };
 
   const fetchLocation = () => {
     function error(err) {
@@ -86,7 +71,6 @@ export const AppProvider = ({ children }) => {
               x.types.includes("country")
             )[0].short_name,
           });
-          //   setError(false);
         } else {
           setError(true);
           console.log("error: ", error);
@@ -96,10 +80,6 @@ export const AppProvider = ({ children }) => {
         console.error(err);
       });
   };
-
-  useEffect(async () => {
-    fetchLocation();
-  }, [lURL]);
 
   useEffect(() => {
     setLoading(true);

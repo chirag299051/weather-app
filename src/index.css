@@ -5,12 +5,17 @@ body {
     "Helvetica Neue", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #121316 !important;
+  background-color: #000000 !important;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.loader {
+  width: 100px;
+  margin: 300px auto 300px auto;
 }
 
 ul {
@@ -21,9 +26,8 @@ ul {
   width: 100%;
   height: 90vh;
   margin-top: -100px;
-  background-color: #121316;
+  background-color: #000000;
   max-height: 80%;
-  /* padding-bottom: 20%; */
 }
 
 .logo {
@@ -36,12 +40,12 @@ ul {
   border-radius: 50%;
   position: relative;
   top: -4px;
-  /* filter: brightness(75%) saturate(40%) */
 }
 .logo h2 {
   display: inline-block;
   padding: 10px 20px;
   vertical-align: middle;
+  color: #d6dcff;
 }
 
 .search {
@@ -50,7 +54,6 @@ ul {
   margin: 100px auto 0px auto;
   position: relative;
   z-index: 10;
-  /* height: 900px; */
 }
 
 .css-2b097c-container {
@@ -62,6 +65,7 @@ ul {
 }
 .css-yk16xz-control {
   z-index: 1;
+  background-color: #d6dcff !important;
 }
 .css-2613qy-menu {
   z-index: 1005;
@@ -135,10 +139,19 @@ canvas.vanta-canvas {
   margin: 10px auto;
   background-color: #d6dcff;
   border-radius: 10px;
-  min-width: 12%;
+  min-width: 15%;
   margin-right: 10px;
   margin-bottom: 20px;
   max-height: 400px;
+}
+
+a.news-item {
+  text-decoration: none;
+  color: #4d556d;
+}
+a.news-item:hover {
+  text-decoration: none;
+  color: #121316;
 }
 
 .news-item img {
@@ -147,37 +160,10 @@ canvas.vanta-canvas {
 .news-item p {
   padding: 5px;
   margin: auto;
-  float: none;
 }
 .news h1 {
-  color: #7a7e94;
-  background-color: #121316;
-}
-
-.footer {
-  color: #7a7a7a;
-  background-color: #121316;
-  height: 10vh;
-  width: 100%;
-  left: 0;
-  bottom: 0;
-  position: fixed;
-  z-index: 1;
-  overflow-y: auto;
-}
-.footer span {
-  position: relative;
-  top: 40%;
-}
-.footer a {
-  color: #e4e8ff;
-  opacity: 0.6;
-  transition: all 0.2s ease-in;
-}
-.footer a:hover {
-  text-decoration: none;
-  color: red;
-  opacity: 1;
+  color: #858ec0;
+  background-color: #000000;
 }
 
 ::-webkit-scrollbar {
@@ -234,9 +220,6 @@ canvas.vanta-canvas {
     background-color: black;
   }
 
-  .news h1 {
-  }
-
   .news-item {
     min-width: 280px;
     margin-right: 10px;
@@ -249,10 +232,5 @@ canvas.vanta-canvas {
   .news-item img {
     width: 98%;
     max-height: 220px;
-  }
-  .news-item p {
-    padding: 5px;
-    margin: auto;
-    float: none;
   }
 }

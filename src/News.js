@@ -4,7 +4,7 @@ import NewsItem from "./NewsItem";
 import Card from "./Card";
 
 const News = () => {
-  const { theme, news } = useContext(context);
+  const { news } = useContext(context);
   return (
     <>
       <div className={"news"}>

@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import { context } from "./context";
 import Clock from "react-live-clock";
 import Card from "./Card";
+import { Oval } from "react-loader-spinner";
 
 const Weather = () => {
   const { theme, weather, location, timezone } = useContext(context);
@@ -63,7 +64,11 @@ const Weather = () => {
         </ul>
       </div>
     </Card>
-  ) : null;
+  ) : (
+    <div className="loader">
+      <Oval color="#00BFFF" height={80} width={80} />
+    </div>
+  );
 };
 
 export default Weather;
